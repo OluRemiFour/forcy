@@ -61,7 +61,6 @@ const Page = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Find the index of the current active brand
       const currentIndex = brandsData.findIndex(
         (brand) => brand.brand === activeBrand
       );
@@ -70,13 +69,13 @@ const Page = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [activeBrand]);
+  }, [activeBrand, brandsData]);
 
   useEffect(() => {
     if (!activeBrand) {
       setActiveBrand(brandsData[0].brand);
     }
-  }, [activeBrand]);
+  }, [activeBrand, brandsData]);
 
   const companyVison = [
     {
@@ -112,7 +111,7 @@ const Page = () => {
   const targets = [50, 120, 10, 10];
   const [counts, setCounts] = useState(targets.map(() => 0));
   const [isCounting, setIsCounting] = useState(false);
-  const counterRefs = useRef([]);
+  const counterRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -134,7 +133,7 @@ const Page = () => {
     return () => observer.disconnect();
   }, [isCounting]);
 
-  const handleCount = (index) => {
+  const handleCount = (index: number) => {
     const interval = setInterval(() => {
       setCounts((prevCounts) =>
         prevCounts.map((count, i) =>
@@ -825,11 +824,32 @@ const Page = () => {
                 </div>
               </div>
               <div className="flex justify-evenly sm:justify-between items-center gap-3">
-                {["Clients", "Projects", "Team Leads", "Glorious Years"].map(
+                {/* {["Clients", "Projects", "Team Leads", "Glorious Years"].map(
                   (label, index) => (
                     <div key={index} className="flex flex-col gap-3 w-fit">
                       <div
                         ref={(el) => (counterRefs.current[index] = el)}
+                        className="text-[15px] sm:text-base md:text-lg font-semibold whitespace-nowrap max-w-full overflow-hidden text-ellipsis"
+                        style={{ textAlign: "center" }}
+                      >
+                        <h1 className="text-[45px] text-[#60a6e7] font-semibold pb-2">
+                          {counts[index] < targets[index]
+                            ? counts[index]
+                            : `${targets[index]}+`}
+                        </h1>
+                        {label}
+                      </div>
+                    </div>
+                  )
+                )} */}
+
+                {["Clients", "Projects", "Team Leads", "Glorious Years"].map(
+                  (label, index) => (
+                    <div key={index} className="flex flex-col gap-3 w-fit">
+                      <div
+                        ref={(el) => {
+                          counterRefs.current[index] = el; // No return value, just assign
+                        }}
                         className="text-[15px] sm:text-base md:text-lg font-semibold whitespace-nowrap max-w-full overflow-hidden text-ellipsis"
                         style={{ textAlign: "center" }}
                       >

@@ -206,7 +206,7 @@ const Page = () => {
       </div>
       {toggleNav && (
         <div
-          className="rounded-[20px] fixed shadow-lg text-left shadow-black py-10 pr-24 pl-8 w-fit right-[8%] z-[999] top-36 space-y-4"
+          className="rounded-[20px] lg:hidden md:hidden fixed shadow-lg text-left shadow-black py-10 pr-24 pl-8 w-fit right-[8%] z-[999] top-36 space-y-4"
           style={{ backgroundColor: "rgb(3,5,22)" }}
         >
           <p>About</p>

@@ -10,9 +10,11 @@ import { FaFacebookF } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { TbBrandSpotify } from "react-icons/tb";
 import { motion } from "framer-motion";
+import { TiThMenu } from "react-icons/ti";
+
 const Page = () => {
   const [activeBrand, setActiveBrand] = useState("starks");
-  const [activeVison, setActiveVision] = useState("Idea");
+  const [activeVision, setActiveVision] = useState("Idea");
 
   const handleBrandClick = ({ brand }: { brand: string }) => {
     setActiveBrand(brand);
@@ -154,7 +156,7 @@ const Page = () => {
         background:
           "linear-gradient(180deg, rgba(3,5,22,1) 0%, rgba(7,22,38,1) 100%)",
       }}
-      className="p-24 overflow-x-hidden"
+      className="lg:p-24 md:p-24 p-10 overflow-x-hidden"
     >
       <div className="w-full fixed top-0 left-0 py-[1.8rem] flex justify-around lg:gap-[24rem] gap-10 items-center z-30 backdrop-blur-md">
         <div className="flex items-center gap-20">
@@ -162,19 +164,19 @@ const Page = () => {
             c forcythe
           </Link>
           <div className="hidden md:flex items-center gap-4 text-base">
-            <Link href="/about">
+            <Link href="#">
               <span className="">About</span>
             </Link>
-            <Link href="/services">
+            <Link href="#">
               <span className="">Services</span>
             </Link>
-            <Link href="/services#portfolio">
+            <Link href="#">
               <span className="">Portfolio</span>
             </Link>
-            <Link href="/studio">
+            <Link href="#">
               <span className="">Studio</span>
             </Link>
-            <Link href="/foundation">
+            <Link href="#">
               <span className="">Foundation</span>
             </Link>
           </div>
@@ -195,15 +197,7 @@ const Page = () => {
           </div>
         </div>
         <div className=" bg-white bg-opacity-10 rounded-md p-3 md:hidden cursor-pointer">
-          <Image
-            alt="menu"
-            loading="lazy"
-            width={18}
-            height={18}
-            decoding="async"
-            style={{ color: "transparent" }}
-            src="./images/menu.svg"
-          />
+          <TiThMenu />
         </div>
       </div>
       <main className="w-full mt-[6.3rem] md:mt-[6.8rem]">
@@ -211,11 +205,11 @@ const Page = () => {
           <div className="section-padding">
             <div className="w-full bg-white bg-opacity-10 p-5 py-8 md:p-8 lg:p-10 my-10 rounded-[2rem] sm:rounded-[3rem]">
               <div className="max-w-[56rem]">
-                <h1 className="text-[80px] font-semibold leading-none">
+                <h1 className="md:text-[80px] lg:text-[80px] text-[40px] font-semibold leading-none">
                   We build <span className="text-[#064386]">products</span> that
                   shape a better
                 </h1>
-                <div className="min-h-[60px]" />
+                <div className="md:min-h-[60px] lg:min-h-[60px] min-h-[30px]" />
                 <div className="mb-8 max-w-3xl">
                   <div className="">
                     <p className="text-base md:text-lg lg:text-[18px] mb-8 leading-7">
@@ -245,11 +239,11 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <div className="py-10">
+          <div className="md:py-10 lg:py-10 py-4">
             <div className="min-h-[60px]">
               <div className="">
                 <div className="">
-                  <p className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] font-semibold sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-12 max-w-[90%] mx-auto text-center">
+                  <p className="md:text-[2rem] text-[21px] leading-[2.5rem] sm:text-[2.2rem] font-semibold sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-12 max-w-[90%] mx-auto text-center">
                     Success in <span className="text-[#60a6e7]">Motion</span> –
                     Our clients’ journey
                   </p>
@@ -387,7 +381,7 @@ const Page = () => {
                 </div>
 
                 <div
-                  className="overflow-hidden min-w-full"
+                  className="lg:block md:block hidden overflow-hidden min-w-full"
                   style={{
                     whiteSpace: "nowrap",
                     position: "relative",
@@ -527,27 +521,27 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="py-6">
-          <div className="py-8">
-            <h1 className="text-[41px] font-semibold text-center px-60">
+        <div className="pb-6">
+          <div className="pb-8">
+            <h1 className="lg:text-[41px] text-[31px] font-semibold text-center lg:px-60">
               Discover the{" "}
               <span className="text-[#60a6e7]">transformative stories</span> of
               startups that scaled new heights with us
             </h1>
           </div>
           <div className="w-full overflow-hidden">
-            <div className="w-full border-[1px] border-[#06438C] gap-1 rounded-full grid grid-cols-5 min-w-[750px]">
+            <div className="w-full border-[1px] border-[#06438C] gap-1 rounded-full grid grid-cols-5 lg:min-w-[750px]">
               {brandsData.map((brand) => (
                 <div
                   key={brand.brand}
                   onClick={() => handleBrandClick({ brand: brand.brand })}
-                  className={`w-full px-[1.1rem] ${
+                  className={`w-full md:px-[1.1rem]  lg:px-[1.1rem] ${
                     activeBrand === brand.brand ? "bg-[#0c2645]" : ""
                   } ${activeBrand === "Starks" && "rounded-l-full"} ${
                     activeBrand === "Beaupreneur" && "rounded-r-full"
                   }  py-6 cursor-pointer transition-all duration-300`}
                 >
-                  <div className="w-fit h-full col mx-auto gap-1.5 text-white text-[17px] font-medium min-w-fit flex items-center justify-center">
+                  <div className="w-fit h-full col mx-auto md:gap-1.5 lg:gap-1.5 text-white md:text-[17px] lg:text-[17px] gap-1 font-medium min-w-fit flex items-center justify-center">
                     <button>{brand.brand}</button>
                   </div>
                 </div>
@@ -562,13 +556,13 @@ const Page = () => {
                 key={key}
                 className={`mt-5 ${
                   activeBrand === "ExecutivePros"
-                    ? "ml-[16rem]"
+                    ? "lg:ml-[16rem]"
                     : activeBrand === "Stac AI"
-                    ? "ml-[33rem]"
+                    ? "lg:ml-[33rem]"
                     : activeBrand === "Iwaria"
-                    ? "ml-[20rem]"
+                    ? "lg:ml-[20rem]"
                     : activeBrand === "Beaupreneur"
-                    ? "ml-[40rem]"
+                    ? "lg:ml-[40rem]"
                     : ""
                 }
                 
@@ -581,7 +575,7 @@ const Page = () => {
                   </p>
                   <p className="text-[15px] font-semibold mb-4">{brand.name}</p>
                 </div>
-                <div className="w-full h-[24rem] sm:w-auto sm:h-auto sm:basis-[42%] relative object-top mt-3 sm:mt-0">
+                <div className="w-full h-full sm:w-auto sm:h-auto sm:basis-[42%] relative object-top mt-3 sm:mt-0">
                   <div className="bg-accent z-0 w-full h-full absolute top-0 left-0 bg-opacity-10 animate-pulse rounded-xl" />
                   <Image
                     alt={brand.name}
@@ -626,8 +620,8 @@ const Page = () => {
                       key={brand.brand}
                       onClick={() => handleVisionClick({ brand: brand.brand })}
                       className={`${
-                        activeVison === brand.brand
-                          ? "bg-blue-300 text-black"
+                        activeVision === brand.brand
+                          ? "bg-gray-300 text-black"
                           : "text-white"
                       } overflow-hidden px-2 md:px-2.5 py-3 md:py-3.5 rounded-full bg-transparent text-center text-base font-medium cursor-pointer transition-all duration-300`}
                     >
@@ -639,7 +633,7 @@ const Page = () => {
                 </div>
 
                 {companyVison
-                  .filter((brand) => brand.brand === activeVison)
+                  .filter((brand) => brand.brand === activeVision)
                   .map((brand, key) => (
                     <>
                       <div key={key} className="">
@@ -670,7 +664,7 @@ const Page = () => {
             </div>
 
             {companyVison
-              .filter((brand) => brand.brand === activeVison)
+              .filter((brand) => brand.brand === activeVision)
               .map((brand, key) => (
                 <div
                   key={key}
@@ -848,10 +842,10 @@ const Page = () => {
                         ref={(el) => {
                           counterRefs.current[index] = el;
                         }}
-                        className="text-[15px] sm:text-base md:text-lg font-semibold whitespace-nowrap max-w-full overflow-hidden text-ellipsis"
+                        className="md:text-[15px] lg:text-lg text-[12px] font-semibold whitespace-nowrap max-w-full overflow-hidden text-ellipsis"
                         style={{ textAlign: "center" }}
                       >
-                        <h1 className="text-[45px] text-[#60a6e7] font-semibold pb-2">
+                        <h1 className="lg:text-[45px] text-[#60a6e7] font-semibold pb-2">
                           {counts[index] < targets[index]
                             ? counts[index]
                             : `${targets[index]}+`}
@@ -889,7 +883,7 @@ const Page = () => {
               <div className="w-full h-full absolute top-1.5 right-1.5 z-0 rounded-full border-[1px] border-dashed group-hover:border-[#064386]" />
             </div>
           </div>
-          <div className="flex w-full justify-between gap-6">
+          <div className="lg:flex md:flex w-full justify-between space-y-6 md:space-y-0 lg:space-y-0 gap-6">
             <div className="hover:scale-105 transition-all ease-linear scale-100 duration-500 md:flex justify-between flex-col gap-8 md:gap-10 lg:gap-12">
               <div>
                 <Image
@@ -968,7 +962,7 @@ const Page = () => {
           className="section-padding py-10 text-center bg-[071626] bg-opacity-0"
         >
           <div className="max-w-[45rem] mx-auto">
-            <h2 className="text-[2rem] font-semibold leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-6">
+            <h2 className="text-[1.6rem] font-semibold leading-[2.5rem] sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-6">
               <span className="text-[#60a6e7]">Ready to Scale?</span>
               <br /> Join successful brands that chose us as their
               <span className="text-[#60a6e7]"> growth accelerator</span>
@@ -991,7 +985,7 @@ const Page = () => {
           </div>
         </div>
       </main>
-      <div className="section-padding py-10 bg-secondaryBackground">
+      <div className="section-padding pb-10 pt-4 bg-secondaryBackground">
         <div className="lg:grid lg:grid-cols-3 my-10">
           <div className="max-w-lg mb-10 lg:mb-0">
             <div className="w-full grid grid-cols-4">

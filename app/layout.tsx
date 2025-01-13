@@ -7,11 +7,6 @@ const lexend = Lexend({
   subsets: ["latin"],
 });
 
-// const lexendDisplay = Lexend_Display({
-//   variable: "--font-lexend-display",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
   title:
     "Forcythe - Your Partner in Sacalable Business Growth | Digital Solutions",

@@ -257,7 +257,6 @@ const Page = () => {
               </div>
 
               <>
-                {/* First Scrolling Section */}
                 <div
                   className="overflow-hidden min-w-full"
                   style={{
@@ -387,7 +386,6 @@ const Page = () => {
                   </motion.div>
                 </div>
 
-                {/* Second Scrolling Section */}
                 <div
                   className="overflow-hidden min-w-full"
                   style={{
@@ -848,7 +846,7 @@ const Page = () => {
                     <div key={index} className="flex flex-col gap-3 w-fit">
                       <div
                         ref={(el) => {
-                          counterRefs.current[index] = el; // No return value, just assign
+                          counterRefs.current[index] = el;
                         }}
                         className="text-[15px] sm:text-base md:text-lg font-semibold whitespace-nowrap max-w-full overflow-hidden text-ellipsis"
                         style={{ textAlign: "center" }}

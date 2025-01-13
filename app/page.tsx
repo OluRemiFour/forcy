@@ -15,6 +15,7 @@ import { TiThMenu } from "react-icons/ti";
 const Page = () => {
   const [activeBrand, setActiveBrand] = useState("starks");
   const [activeVision, setActiveVision] = useState("Idea");
+  const [toggleNav, setToggleNav] = useState(false);
 
   const handleBrandClick = ({ brand }: { brand: string }) => {
     setActiveBrand(brand);
@@ -158,7 +159,7 @@ const Page = () => {
       }}
       className="lg:p-24 md:p-24 p-10 overflow-x-hidden"
     >
-      <div className="w-full fixed top-0 left-0 py-[1.8rem] flex justify-around lg:gap-[24rem] gap-10 items-center z-30 backdrop-blur-md">
+      <div className="w-full fixed top-0 left-0 py-[1.8rem] flex md:justify-around lg:justify-around justify-between lg:gap-[24rem] gap-10 px-10 md:px-0 lg:px-0 items-center z-30 backdrop-blur-md">
         <div className="flex items-center gap-20">
           <Link href="/" className="text-3xl font-bold blur-[1px]">
             c forcythe
@@ -196,10 +197,27 @@ const Page = () => {
             <div className="w-full h-full absolute top-1.5 right-1.5 z-0 rounded-full border-[1px] border-dashed group-hover:border-[#064386]" />
           </div>
         </div>
-        <div className=" bg-white bg-opacity-10 rounded-md p-3 md:hidden cursor-pointer">
+        <div
+          onClick={() => setToggleNav(!toggleNav)}
+          className=" bg-white bg-opacity-10 rounded-md p-3 md:hidden cursor-pointer"
+        >
           <TiThMenu />
         </div>
       </div>
+      {toggleNav && (
+        <div
+          className="rounded-[20px] fixed shadow-lg text-left shadow-black py-10 pr-24 pl-8 w-fit right-[8%] z-[999] top-36 space-y-4"
+          style={{ backgroundColor: "rgb(3,5,22)" }}
+        >
+          <p>About</p>
+          <p>Services</p>
+          <p>Portfolio</p>
+          <p>Studio</p>
+          <p>Foundation</p>
+          <p>Careers</p>
+          <p>Blog</p>
+        </div>
+      )}
       <main className="w-full mt-[6.3rem] md:mt-[6.8rem]">
         <div className="md:min-h-screen bg-[url('./images/header-background.svg')] bg-no-repeat bg-top">
           <div className="section-padding">
@@ -617,13 +635,27 @@ const Page = () => {
                 <div className="border-4 border-[#b3d0f2] mb-12 rounded-full grid gap-1 grid-cols-4 p-3.5">
                   {companyVison.map((brand) => (
                     <div
+                      //   key={brand.brand}
+                      //   onClick={() => handleVisionClick({ brand: brand.brand })}
+                      //   className={`${
+                      //     activeVision === brand.brand
+                      //       ? "bg-gray-300 text-black"
+                      //       : "text-white"
+                      //   } overflow-hidden px-2 md:px-2.5 py-3 md:py-3.5 rounded-full bg-transparent text-center text-base font-medium cursor-pointer transition-all duration-300`}
+                      // >
                       key={brand.brand}
                       onClick={() => handleVisionClick({ brand: brand.brand })}
                       className={`${
                         activeVision === brand.brand
-                          ? "bg-gray-300 text-black"
+                          ? "bg-[#60a6e7] text-black"
                           : "text-white"
                       } overflow-hidden px-2 md:px-2.5 py-3 md:py-3.5 rounded-full bg-transparent text-center text-base font-medium cursor-pointer transition-all duration-300`}
+                      style={{
+                        backgroundColor:
+                          activeVision === brand.brand
+                            ? "#60a6e7"
+                            : "transparent", // Tailwind's gray-300 hex
+                      }}
                     >
                       <div className="w-fit h-full col mx-auto gap-1.5 text-[17px] font-medium min-w-fit flex items-center justify-center">
                         <button>{brand.brand}</button>

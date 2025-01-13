@@ -629,7 +629,7 @@ const Page = () => {
                       onClick={() => handleVisionClick({ brand: brand.brand })}
                       className={`${
                         activeVison === brand.brand
-                          ? "bg-[#b3d0f2] text-black"
+                          ? "bg-blue-300 text-black"
                           : "text-white"
                       } overflow-hidden px-2 md:px-2.5 py-3 md:py-3.5 rounded-full bg-transparent text-center text-base font-medium cursor-pointer transition-all duration-300`}
                     >
